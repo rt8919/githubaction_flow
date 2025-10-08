@@ -17,6 +17,6 @@ jobs:
 
         - name: install cowsay, ascii art work, view dragon
           run: 
-            sudo apt-get update && sudo apt-get install cowsay -y
+            #sudo apt-get update && sudo apt-get install cowsay -y
             cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
-            cat dragon.txt
+            #cat dragon.txt
