@@ -6,10 +6,15 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
+        - name: Checkout add
+          uses: actions/checkout@v5
+
         - name: Welcome message
           run: echo "first workflow"
 
         - name: list files
           run: ls
-          
+
+        - name: view files
+          run: cat README.md
           
