@@ -10,13 +10,13 @@ jobs:
           uses: actions/checkout@v5
 
         - name: Welcome List and read
-          run: 
+          run: |
             echo "first workflow"
             ls -ltr
             cat README.md
 
         - name: install cowsay, ascii art work, view dragon
-          run: 
-            #sudo apt-get update && sudo apt-get install cowsay -y
+          run: |
+            sudo apt-get update && sudo apt-get install cowsay -y
             cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
-            #cat dragon.txt
+            cat dragon.txt
