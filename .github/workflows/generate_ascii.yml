@@ -16,12 +16,14 @@ jobs:
           run: cat dragon.txt
 
     Second-job:
+        needs: first-job
         runs-on: ubuntu-latest
         steps:
         - name: View dragon
           run: cat dragon.txt
 
     Third-job:
+        needs: Second-job
         runs-on: ubuntu-latest
         steps:
         - name: View dragon
