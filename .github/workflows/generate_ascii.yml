@@ -6,20 +6,23 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
-        - name: Checkout add
-          uses: actions/checkout@v5
+        - name: Install cowsay
+          run: sudo apt-get update && sudo apt-get install cowsay -y
 
-        - name: Executing shell script
-          run: |
-               ls -lrta
-               chmod 777 shell_ascii.sh
-               ./shell_ascii.sh
+        - name: ASCII artwork
+          run: cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
 
-        # - name: Install cowsay
-        #   run: sudo apt-get update && sudo apt-get install cowsay -y
+        - name: View dragon
+          run: cat dragon.txt
 
-        # - name: ASCII artwork
-        #   run: cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
+    Second-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: View dragon
+          run: cat dragon.txt
 
-        # - name: View dragon
-        #   run: cat dragon.txt
+    Third-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: View dragon
+          run: chmod -R 777 dragon.txt
