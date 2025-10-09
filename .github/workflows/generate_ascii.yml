@@ -9,11 +9,14 @@ jobs:
         - name: Checkout add
           uses: actions/checkout@v5
 
-        - name: Install cowsay
-          run: sudo apt-get update && sudo apt-get install cowsay -y
+        - name: Executing shell script
+          uses: ./shell_ascii.sh
 
-        - name: ASCII artwork
-          run: cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
+        # - name: Install cowsay
+        #   run: sudo apt-get update && sudo apt-get install cowsay -y
 
-        - name: View dragon
-          run: cat dragon.txt
+        # - name: ASCII artwork
+        #   run: cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
+
+        # - name: View dragon
+        #   run: cat dragon.txt
