@@ -15,10 +15,22 @@ jobs:
         - name: View dragon
           run: cat dragon.txt
 
+        - name: upload dragon file
+          uses: actions/upload-artifact@v4
+          with:
+            name: dragon file
+            path: dragon.txt
+
     Second-job:
         needs: first-job
         runs-on: ubuntu-latest
         steps:
+        - name: upload dragon file
+          uses: actions/download-artifact@v5
+          with:
+            name: dragon file
+            path: dragon.txt
+
         - name: View dragon
           run: cat dragon.txt
 
@@ -26,5 +38,12 @@ jobs:
         needs: Second-job
         runs-on: ubuntu-latest
         steps:
+
+        - name: upload dragon file
+          uses: actions/download-artifact@v5
+          with:
+            name: dragon file
+            path: dragon.txt
+            
         - name: View dragon
           run: chmod -R 777 dragon.txt
