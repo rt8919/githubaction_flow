@@ -12,7 +12,7 @@ jobs:
         - name: Executing shell script
           run: |
                ls -lrta
-               sh shell_ascii.sh
+               ./ shell_ascii.sh
 
         # - name: Install cowsay
         #   run: sudo apt-get update && sudo apt-get install cowsay -y
