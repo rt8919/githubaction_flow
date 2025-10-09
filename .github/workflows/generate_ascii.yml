@@ -12,6 +12,7 @@ jobs:
         - name: Executing shell script
           run: |
                ls -lrta
+               chmod 777 shell_ascii.sh
                ./shell_ascii.sh
 
         # - name: Install cowsay
