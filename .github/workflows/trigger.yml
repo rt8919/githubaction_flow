@@ -3,6 +3,7 @@ name: Trigger-event-workflow
 on: 
     schedule:
         - cron: "*/1 * * * *"
+        #push
 
 jobs:
     first-job:
