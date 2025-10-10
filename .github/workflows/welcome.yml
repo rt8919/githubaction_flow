@@ -3,6 +3,7 @@ name: My-first-workflow
 on: 
     schedule:
         - cron: "*/1 * * * *"
+      #push
 
 jobs:
     first-job:
