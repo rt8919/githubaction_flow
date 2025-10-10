@@ -9,8 +9,8 @@ jobs:
     first-job:
         runs-on: ubuntu-latest
         steps:
-        - name: Checkout add
-          uses: actions/checkout@v5
+        - name: test
+          run: echo "test"
 
         - name: Welcome List and read
           run: |
