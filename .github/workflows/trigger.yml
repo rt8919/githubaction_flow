@@ -1,0 +1,51 @@
+name: Trigger-event-workflow
+
+on: 
+    schedule:
+        - cron: "*/1 * * * *"
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Install cowsay
+          run: sudo apt-get update && sudo apt-get install cowsay -y
+
+        - name: ASCII artwork
+          run: cowsay -f dragon "Run for cover, I am a DRAGON.... RAWR" > dragon.txt
+
+        - name: View dragon
+          run: cat dragon.txt
+
+        - name: upload dragon file
+          uses: actions/upload-artifact@v4
+          with:
+            name: dragon file
+            path: dragon.txt
+
+    Second-job:
+        needs: first-job
+        runs-on: ubuntu-latest
+        steps:
+        - name: upload dragon file
+          uses: actions/download-artifact@v5
+          with:
+            name: dragon file
+            path: dragon.txt
+
+        - name: View dragon
+          run: cat dragon.txt
+
+    Third-job:
+        needs: Second-job
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: upload dragon file
+          uses: actions/download-artifact@v5
+          with:
+            name: dragon file
+            path: dragon.txt
+            
+        - name: View dragon
+          run: chmod -R 777 dragon.txt
